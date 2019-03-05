@@ -4,7 +4,7 @@ import Nav from './nav';
 export default function Login({ location }) {
   return (
     <>
-      {location.state == null && <Nav />}
+      {location.state && location.state.oldLocation == null && <Nav />}
       <form>
         <h2>Login</h2>
         <div>
