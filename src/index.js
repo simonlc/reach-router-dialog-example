@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router } from '@reach/router';
+import { Router, Link } from '@reach/router';
 import { Dialog } from '@reach/dialog';
 import {
   ScoreDialogProvider,
@@ -19,6 +19,7 @@ function Home({ location }) {
     <>
       <Nav />
       <h1>Home</h1>
+      <Link to="/login">Go to login page without a Dialog</Link>
     </>
   );
 }
