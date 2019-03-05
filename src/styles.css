@@ -1,4 +1,15 @@
-.App {
+body {
   font-family: sans-serif;
-  text-align: center;
+}
+
+form {
+  display: grid;
+  gap: 15px;
+}
+
+.nav {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 10px;
 }
