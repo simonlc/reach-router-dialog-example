@@ -12,7 +12,7 @@ export default function Nav() {
           <Link to="/page/3">Page 3</Link>
           <Link
             state={{
-              oldLocation: { ...JSON.parse(JSON.stringify(location)) },
+              oldLocation: JSON.parse(JSON.stringify(location)),
             }}
             to="/login"
           >
