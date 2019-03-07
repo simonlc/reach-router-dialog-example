@@ -2,10 +2,10 @@ import React from 'react';
 import Nav from './nav';
 
 export default function Login({ location }) {
+  const { oldLocation } = location.sate;
   return (
     <>
-      {(location.state == null ||
-        (location.state && location.state.oldLocation == null)) && <Nav />}
+      {oldLocation == null && <Nav />}
       <form>
         <h2>Login</h2>
         <div>

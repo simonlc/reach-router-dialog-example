@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Link } from '@reach/router';
+import { Router, Link, Location } from '@reach/router';
 import { Dialog } from '@reach/dialog';
-import {
-  DialogProvider,
-  DialogContext,
-} from './dialog-context';
 
 import Login from './login';
 import Page from './page';
@@ -36,9 +32,10 @@ function Routes({ location }) {
 
 function App() {
   return (
-    <DialogProvider paths={['/login']}>
-      <DialogContext.Consumer>
-        {({ oldLocation, location, navigate }) => (
+    <Location>
+      {({ location, navigate }) => {
+        const { oldLocation } = location.state;
+        return (
           <>
             <Routes location={oldLocation != null ? oldLocation : location} />
             <Dialog
@@ -50,9 +47,9 @@ function App() {
               <Routes location={location} />
             </Dialog>
           </>
-        )}
-      </DialogContext.Consumer>
-    </DialogProvider>
+        );
+      }}
+    </Location>
   );
 }
 
