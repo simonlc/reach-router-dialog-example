@@ -20,9 +20,9 @@ function Home({ location }) {
   );
 }
 
-function Routes({ location }) {
+function Routes(props) {
   return (
-    <Router location={location}>
+    <Router {...props}>
       <Home path="/" />
       <Login path="/login" />
       <Page path="/page/:number" />
