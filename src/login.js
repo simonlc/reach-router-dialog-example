@@ -2,7 +2,7 @@ import React from 'react';
 import Nav from './nav';
 
 export default function Login({ location }) {
-  const { oldLocation } = location.sate;
+  const { oldLocation } = location.state || {};
   return (
     <>
       {oldLocation == null && <Nav />}

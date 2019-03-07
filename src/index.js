@@ -34,7 +34,7 @@ function App() {
   return (
     <Location>
       {({ location, navigate }) => {
-        const { oldLocation } = location.state;
+        const { oldLocation } = location.state || {};
         return (
           <>
             <Routes location={oldLocation != null ? oldLocation : location} />
