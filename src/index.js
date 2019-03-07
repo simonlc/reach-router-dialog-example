@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import { Router, Link } from '@reach/router';
 import { Dialog } from '@reach/dialog';
 import {
-  ScoreDialogProvider,
-  ScoreDialogContext,
-} from './score-dialog-context';
+  DialogProvider,
+  DialogContext,
+} from './dialog-context';
 
 import Login from './login';
 import Page from './page';
@@ -36,13 +36,12 @@ function Routes({ location }) {
 
 function App() {
   return (
-    <ScoreDialogProvider paths={['/login']}>
-      <ScoreDialogContext.Consumer>
+    <DialogProvider paths={['/login']}>
+      <DialogContext.Consumer>
         {({ oldLocation, location, navigate }) => (
           <>
             <Routes location={oldLocation != null ? oldLocation : location} />
             <Dialog
-              className="score-dialog"
               isOpen={oldLocation != null}
               onDismiss={() => {
                 navigate(oldLocation.pathname);
@@ -52,8 +51,8 @@ function App() {
             </Dialog>
           </>
         )}
-      </ScoreDialogContext.Consumer>
-    </ScoreDialogProvider>
+      </DialogContext.Consumer>
+    </DialogProvider>
   );
 }
 
